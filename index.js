@@ -26,13 +26,14 @@ function readJSON(filename) { // returns undefined on error
 
 function message(msg) {
     robot.to(config.channel, function(res) {
+        console.log(msg);
         res.text('```✨ '+msg+'```');
         return res.send();
     });
 };
 
 function error(error) {
-    var msg = '✨ error: '+error+(error.stack ? error.stack : '')+'```';
+    var msg = 'error: '+error+(error.stack ? '\n'+error.stack : '')+'```';
     message(msg);
 };
 
@@ -45,8 +46,9 @@ robot._rtm.on('authenticated', function() {
      */
     robot.listen(config.prefix+' +:cmd([\\S ]+)', function(req, res) {
         try {
+            console.log(req.user.name+'$', req.params.cmd);
             var responses = rpg.parse(req.user.name, req.params.cmd.trim());
-            responses = responses.map((element) => { return typeof element === 'string' ? element : JSON.stringify(element, null, 4); })
+            responses = responses.map((element) => { return typeof element === 'string' ? element : JSON.stringify(element, null, 3); })
             message(responses.join('\n✨ '));
         } catch(error) {
             error(error);
@@ -58,7 +60,6 @@ robot._rtm.on('authenticated', function() {
      */
     robot.on('error', function(error) {
         error(error);
-        console.error(error);
     });
 });
 
