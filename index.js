@@ -8,24 +8,32 @@
 
 'use strict';
 
-var SlackRobot = require('slack-robot'),
-    configpath = './config.json',
-    config = readConfig(configpath),
+var FileSystem = require('fs'),
+    SlackRobot = require('slack-robot'),
+    SlackRPG = require('node-rpg'),
+    rpg = SlackRPG.newRPG(),
+    configpath = process.cwd()+'/config.json',
+    config = readJSON(configpath),
     robot = new SlackRobot(config.apitoken);
 
-function readConfig(filename) { // returns undefined on error
+function readJSON(filename) { // returns undefined on error
     try {
-        return JSON.parse(fs.readFileSync(filename, 'utf8'));
+        return JSON.parse(FileSystem.readFileSync(filename, 'utf8'));
     } catch (error) {
-        console.log('error reading', filename, '@', process.cwd(), error);
+        console.error('error reading', filename, '@', process.cwd(), error);
     }
 };
 
 function message(msg) {
     robot.to(config.channel, function(res) {
-        res.text(msg);
+        res.text('```✨ '+msg+'```');
         return res.send();
     });
+};
+
+function error(error) {
+    var msg = '✨ error: '+error+(error.stack ? error.stack : '')+'```';
+    message(msg);
 };
 
 robot._rtm.on('authenticated', function() {
@@ -36,18 +44,20 @@ robot._rtm.on('authenticated', function() {
      * BOT: RPG commands
      */
     robot.listen(config.prefix+' +:cmd([\\S ]+)', function(req, res) {
-        let command = req.params.cmd;
-
-        //TODO:
+        try {
+            var responses = rpg.parse(req.user.name, req.params.cmd.trim());
+            responses = responses.map((element) => { return typeof element === 'string' ? element : JSON.stringify(element, null, 4); })
+            message(responses.join('\n✨ '));
+        } catch(error) {
+            error(error);
+        }
     });
 
     /*
      * BOT: error listener
      */
     robot.on('error', function(error) {
-        message("```" + error + "```");
-        if (error.stack)
-            message("```" + error.stack + "```");
+        error(error);
         console.error(error);
     });
 });
