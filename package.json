@@ -1,0 +1,37 @@
+{
+  "name": "rpg-slack",
+  "version": "0.1.0",
+  "description": "A slack bot integration for node-rpg.",
+  "homepage": "https://github.com/thbaumbach/node-rpg-slack",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "test": "echo no tests yet"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "rpg-slack": "bin/rpg-slack"
+  },
+  "main": "index",
+  "directories": {
+    "lib": "."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thbaumbach/node-rpg-slack"
+  },
+  "bugs": {
+    "url": "https://github.com/thbaumbach/node-rpg-slack/issues"
+  },
+  "dependencies": {
+    "slack-robot": "^3.0.4"
+  },
+  "keywords": [
+    "slack",
+    "rpg",
+    "bot",
+    "cli",
+    "command"
+  ],
+  "author": "Thomas Baumbach <tom@xolo.pw>",
+  "license": "MIT"
+}

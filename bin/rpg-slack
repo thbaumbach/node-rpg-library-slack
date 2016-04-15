@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+/*
+ * rpg-slack
+ *
+ * Copyright (c) 2016 Thomas Baumbach tom@xolo.pw
+ *
+ * Licensed under the MIT License
+ */
+
+require('../index');
