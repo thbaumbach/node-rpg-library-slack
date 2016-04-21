@@ -11,7 +11,7 @@
 var FileSystem = require('fs'),
     SlackRobot = require('slack-robot'),
     SlackRPG = require('node-rpg'),
-    rpg = SlackRPG.newRPG(),
+    rpg = SlackRPG.createRPG(),
     configpath = process.cwd()+'/config.json',
     config = readJSON(configpath),
     robot = new SlackRobot(config.apitoken);
