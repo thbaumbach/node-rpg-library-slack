@@ -1,5 +1,5 @@
 /*
- * rpg-slack
+ * rpg-library-slack
  *
  * Copyright (c) 2016 Thomas Baumbach tom@xolo.pw
  *

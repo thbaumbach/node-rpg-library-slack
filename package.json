@@ -1,8 +1,8 @@
 {
-  "name": "rpg-slack",
+  "name": "rpg-library-slack",
   "version": "0.1.0",
   "description": "A slack bot integration for node-rpg.",
-  "homepage": "https://github.com/thbaumbach/node-rpg-slack",
+  "homepage": "https://github.com/thbaumbach/node-rpg-library-slack",
   "readmeFilename": "README.md",
   "scripts": {
     "postinstall": "npm install ./node_modules/node-rpg && cd node_modules/node-rpg && npm run build && cd -",
@@ -10,7 +10,7 @@
   },
   "preferGlobal": true,
   "bin": {
-    "rpg-slack": "bin/rpg-slack"
+    "rpg-library-slack": "bin/rpg-library-slack"
   },
   "main": "index",
   "directories": {
@@ -18,10 +18,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thbaumbach/node-rpg-slack"
+    "url": "https://github.com/thbaumbach/node-rpg-library-slack"
   },
   "bugs": {
-    "url": "https://github.com/thbaumbach/node-rpg-slack/issues"
+    "url": "https://github.com/thbaumbach/node-rpg-library-slack/issues"
   },
   "dependencies": {
     "slack-robot": "^3.0.4"

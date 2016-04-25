@@ -1,1 +1,1 @@
-# rpg-slack
+# rpg-library-slack
