@@ -1,6 +1,6 @@
 /node_modules
-!/node_modules/node-rpg
 /.idea
 /browse.VC.db
 /lib
 /config.json
+/rpg.db

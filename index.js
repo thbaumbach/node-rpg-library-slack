@@ -1,7 +1,7 @@
 /*
  * rpg-library-slack
  *
- * Copyright (c) 2016 Thomas Baumbach tom@xolo.pw
+ * Copyright (c) 2016 Thomas Baumbach <tom@xolo.pw>
  *
  * Licensed under the MIT License
  */
@@ -10,13 +10,13 @@
 
 var FileSystem = require('fs'),
     SlackRobot = require('slack-robot'),
-    SlackRPG = require('node-rpg'),
+    SlackRPG = require('rpg-library'),
     rpg = SlackRPG.createRPG(),
     configpath = process.cwd()+'/config.json',
     config = readJSON(configpath),
     robot = new SlackRobot(config.apitoken);
 
-function readJSON(filename) { // returns undefined on error
+function readJSON(filename) {
     try {
         return JSON.parse(FileSystem.readFileSync(filename, 'utf8'));
     } catch (error) {
