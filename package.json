@@ -1,7 +1,7 @@
 {
   "name": "rpg-library-slack",
-  "version": "0.1.0",
-  "description": "A slack bot integration for node-rpg.",
+  "version": "0.1.1",
+  "description": "A slack bot integration for rpg-library.",
   "homepage": "https://github.com/thbaumbach/node-rpg-library-slack",
   "readmeFilename": "README.md",
   "scripts": {
