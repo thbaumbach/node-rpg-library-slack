@@ -20,7 +20,7 @@ Run `rpg-library-slack` in your shell.
 
 ## Support
 
-Found a bug? Open an issue [here](https://github.com/thbaumbach/node-quake3-rcon/issues) on Github.
+Found a bug? Open an issue [here](https://github.com/thbaumbach/node-rpg-library-slack/issues) on Github.
 
 Wanna help? Submit a pull request or contact me.
 
