@@ -1,6 +1,6 @@
 {
   "name": "rpg-library-slack",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "A slack bot integration for rpg-library.",
   "homepage": "https://github.com/thbaumbach/node-rpg-library-slack",
   "readmeFilename": "README.md",
@@ -23,8 +23,8 @@
     "url": "https://github.com/thbaumbach/node-rpg-library-slack/issues"
   },
   "dependencies": {
-    "rpg-library": "0.0.3",
-    "slack-robot": "^3.0.4"
+    "rpg-library": "0.0.4",
+    "slack-robot": "^3.2.1"
   },
   "keywords": [
     "slack",
