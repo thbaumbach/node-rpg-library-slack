@@ -25,6 +25,7 @@ function readJSON(filename) {
 };
 
 function message(msg) {
+    // TODO: use 'arguments'
     robot.to(config.channel, function(res) {
         console.log(msg);
         res.text('```✨ '+msg+'```');
@@ -47,9 +48,7 @@ robot._rtm.on('authenticated', function() {
     robot.listen(config.prefix+' +:cmd([\\S ]+)', function(req, res) {
         try {
             console.log(req.user.name+'$', req.params.cmd);
-            var responses = rpg.parse(req.user.name, req.params.cmd.trim());
-            responses = responses.map((element) => { return typeof element === 'string' ? element : JSON.stringify(element, null, 3); })
-            message(responses.join('\n✨ '));
+            rpg.parse(req.user.name, req.params.cmd.trim(), message);
         } catch(error) {
             error(error);
         }
