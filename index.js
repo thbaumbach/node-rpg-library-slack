@@ -24,8 +24,12 @@ function readJSON(filename) {
     }
 };
 
-function message(msg) {
-    // TODO: use 'arguments'
+function message() {
+    var msg = []; // arguments is just a pseudo-array, no real array :-/
+    for(let i = 0; i < arguments.length; ++i) {
+	    msg.push(arguments[i]);
+    }
+    msg = msg.join(' ');
     robot.to(config.channel, function(res) {
         console.log(msg);
         res.text('```✨ '+msg+'```');
